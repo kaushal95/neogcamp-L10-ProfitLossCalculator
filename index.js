@@ -22,7 +22,14 @@ btnElement.addEventListener("click", () => {
   const boughtAt = Number(boughtElement.value);
   const current = Number(currentElement.value);
   const quantity = Number(quantityElement.value);
-  if (boughtAt && current && quantity) {
+  if (
+    boughtAt &&
+    current &&
+    quantity &&
+    boughtAt > 0 &&
+    quantity > 0 &&
+    current > 0
+  ) {
     const { status, percentage, diffAmount } = calculate(
       boughtAt,
       current,
@@ -36,7 +43,7 @@ btnElement.addEventListener("click", () => {
           ).toFixed(2)}% !!`
         );
   } else {
-    showMessage("Please enter all Values!!");
+    showMessage("Please enter Valid Values!!");
   }
 });
 
