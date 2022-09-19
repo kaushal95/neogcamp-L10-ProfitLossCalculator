@@ -6,10 +6,11 @@ const outputElement = document.querySelector(".output");
 
 function calculate(boughtAt, current, quantity) {
   // const currentValue = current * quantity;
-  let diffAmount = (current - boughtAt) * quantity;
+  let diffAmount = current - boughtAt;
   const status = diffAmount > 0 ? "Profit" : "Loss";
   diffAmount = Math.abs(diffAmount);
   const percentage = (diffAmount / boughtAt) * 100;
+  diffAmount = diffAmount * quantity;
   return {
     status,
     percentage,
